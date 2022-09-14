@@ -7,71 +7,84 @@
     z-index: 1;
     left: 0;
     top: 0;
+
+    >.wrapper{
+        max-width: var(--df-main-wrapper);
+        align-items: center;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+
+        &.-has-user{
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+        }
+
+        >.image-wrapper{
+            height: var(--df-header-size);
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        >.logo-wrapper{
+            height: var(--df-header-size);
+            padding-top: 16px;
+            padding-bottom: 16px;
+
+            >.image{
+                height: 100%;
+            }
+        }
+
+        >.user{
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+
+            >.info{
+                text-align: right;
+
+                >.name{
+                    display: block;
+                    font-weight: 800;
+                    font-size: calc(var(--font-size-base) + 4px);
+                    margin-bottom: 3px;
+                }
+
+                >.role{
+                    display: block;
+                    font-weight: 400;
+                    font-size: calc(var(--font-size-base) + 2px);
+                }
+            }
+
+            >.photo-wrapper{
+                margin-left: 12px;
+                height: 32px;
+                width: 32px;
+                border-radius: 50%;
+                border: 1px solid var(--df-color-primary);
+                overflow: hidden;
+                
+                >img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        
+        
+    }
+
 }
 
-.df-header>.wrapper{
-    max-width: var(--df-main-wrapper);
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
 
-.df-header>.wrapper.-has-user{
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-}
 
-/* logo*/
-.df-header>.wrapper >.image-wrapper{
-    height: var(--df-header-size);
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
 
-.df-header>.wrapper >.logo-wrapper{
-    height: var(--df-header-size);
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
 
-.df-header>.wrapper >.logo-wrapper >.image{
-    height: 100%;
-}
+
+
 
 /*Usuario*/
-.df-header>.wrapper >.user{
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
 
-.df-header >.wrapper >.user >.info{
-    text-align: right;
-}
-
-.df-header >.wrapper >.user >.info >.name{
-    display: block;
-    font-weight: 800;
-    font-size: calc(var(--font-size-base) + 4px);
-    margin-bottom: 3px;
-}
-
-.df-header>.wrapper >.user >.info >.role{
-    display: block;
-    font-weight: 400;
-    font-size: calc(var(--font-size-base) + 2px);
-}
-
-.df-header>.wrapper >.user >.photo-wrapper{
-    margin-left: 12px;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--df-color-primary);
-    overflow: hidden;
-}
-
-.df-header>.wrapper >.user >.photo-wrapper >img{
-    height: 100%;
-    width: 100%;
-}
