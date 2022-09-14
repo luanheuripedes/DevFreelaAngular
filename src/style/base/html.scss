@@ -1,0 +1,21 @@
+html{
+    background-color: var(--df-color-gray-lightest);
+    font-family: var(--font-family-base);
+
+    @font-face {
+        font-family:'Relaway';
+        src: url('assets/fonts/Relaway/Raleway-ExtraBold.ttf')
+        format(truetype),
+        url('assets/fonts/Relaway/Raleway-Medium')
+        format(truetype),
+        url('assets/fonts/Relaway/Raleway-SemiBold')
+        format(truetype);
+        font-weight: 500;
+
+        font-family:'Roboto';
+        src: url('assets/fonts/Roboto/Roboto-Bold')
+        format(truetype);
+        font-weight:500;
+    }
+
+}
