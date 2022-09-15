@@ -4,16 +4,16 @@ html{
 
     @font-face {
         font-family:'Relaway';
-        src: url('assets/fonts/Relaway/Raleway-ExtraBold.ttf')
+        src: url('../../../src/assets/fonts/Relaway/Raleway-ExtraBold.ttf')
         format(truetype),
-        url('assets/fonts/Relaway/Raleway-Medium')
+        url('../../../src/assets/fonts/Relaway/Raleway-Medium.ttf')
         format(truetype),
-        url('assets/fonts/Relaway/Raleway-SemiBold')
+        url('../../../src/assets/fonts/Relaway/Raleway-SemiBold')
         format(truetype);
         font-weight: 500;
 
         font-family:'Roboto';
-        src: url('assets/fonts/Roboto/Roboto-Bold')
+        src: url('../../../src/assets/fonts/Roboto/Roboto-Bold')
         format(truetype);
         font-weight:500;
     }
