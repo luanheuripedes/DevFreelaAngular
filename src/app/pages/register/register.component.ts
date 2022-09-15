@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-register',
@@ -32,12 +33,12 @@ export class RegisterComponent implements OnInit {
 
     //checa se alguma role foi checada
     if(this.checkIfAnyRoleIsChecked() === false){
-      alert('Você precisa marcar uma role!')
-        //Swal.fire(
-        //    'Erro!',
-        //    'Você precisa marcar uma role!',
-        //    'error'
-        //  )
+      //alert('Você precisa marcar uma role!')
+        Swal.fire(
+            'Erro!',
+            'Você precisa marcar uma role!',
+            'error'
+          )
         return; //quebra a função
     }
 
@@ -61,12 +62,12 @@ export class RegisterComponent implements OnInit {
     }).then(response => response.json())
       .then(response =>{
 
-        alert('Cadastrado com Sucesso!')
-        //Swal.fire(
-        //    'Sucesso!',
-        //    'Cadastrado com Sucesso!',
-        //    'success'
-        //  );
+        //alert('Cadastrado com Sucesso!')
+        Swal.fire(
+            'Sucesso!',
+            'Cadastrado com Sucesso!',
+            'success'
+          );
         
         localStorage.setItem("userName", response.fullName);
         localStorage.setItem("role", response.role === "dev"?"Desenvolvedor":"Cliente");
