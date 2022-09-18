@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from './interfaces/IUser';
 
 @Component({
   selector: 'app-df-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DfHeaderComponent implements OnInit {
 
-  constructor() { }
+  user:IUser ={}
 
   ngOnInit(): void {
     this.buildHeader();
@@ -17,14 +18,14 @@ export class DfHeaderComponent implements OnInit {
   buildHeader() {
     if(this.checkIfUserIsLogged()){
       //insere nome de usuario no header e role tambem
-    }else{
-      //faz nada
+      this.user.name = localStorage.getItem("userName") || '';
+      this.user.role = localStorage.getItem("role") || '';
     }
   }
 
 
-  checkIfUserIsLogged() {
-    return localStorage.getItem("userName") && localStorage.getItem("role");
+  checkIfUserIsLogged():boolean {
+    return localStorage.getItem("userName") !==null && localStorage.getItem("role")!==null;
   }
 
 }
