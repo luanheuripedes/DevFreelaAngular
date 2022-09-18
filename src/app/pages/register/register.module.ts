@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import { RegisterRoutingModule } from './register-routing.module';
 import { DfHeaderModule } from 'src/app/features/df-header/df-header.module';
+import { DfButtonModule } from 'src/app/shared/components/df-button/df-button.module';
 
 
 
@@ -13,7 +14,8 @@ import { DfHeaderModule } from 'src/app/features/df-header/df-header.module';
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    DfHeaderModule
+    DfHeaderModule,
+    DfButtonModule
   ]
 })
 export class RegisterModule { }
