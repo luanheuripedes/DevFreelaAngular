@@ -1,51 +1,46 @@
-<div class="df-login">
-    <div class="df-wrapper">
-        <app-df-header></app-df-header>
-        
-
-        <main class="main-content">
-
-            <form class="left" (submit)="cadastrar()" action="javascript:void(0)">
+<div class="df-register">
+    <app-df-wrapper>
+        <form class="left" (submit)="cadastrar()" action="javascript:void(0)">
                  
-                <!-- <span class="steps">PASSO 1 DE 2</span> -->
+            <!-- <span class="steps">PASSO 1 DE 2</span> -->
 
-                <h1 class="main-title">
-                    <span class="up">Olá!</span>
-                    <span class="down">Vamos criar o seu cadastro.</span>
-                </h1>
-                <div class="radio-buttons">
-                    <h3 class="title">Qual o seu perfil?</h3>
+            <h1 class="main-title">
+                <span class="up">Olá!</span>
+                <span class="down">Vamos criar o seu cadastro.</span>
+            </h1>
+            <div class="radio-buttons">
+                <h3 class="title">Qual o seu perfil?</h3>
 
-                    <div class="buttons">
-                        <label class="df-radio">
-                            Dev
-                            <input name="role" type="radio">
-                            <span class="checkmark"></span>
-                        </label>
+                <div class="buttons">
+                    <label class="df-radio">
+                        Dev
+                        <input name="role" type="radio">
+                        <span class="checkmark"></span>
+                    </label>
 
-                        <label class="df-radio">
-                            Cliente
-                            <input name="role" type="radio">
-                            <span class="checkmark"></span>
-                        </label>     
-                    </div>
-                     
+                    <label class="df-radio">
+                        Cliente
+                        <input name="role" type="radio">
+                        <span class="checkmark"></span>
+                    </label>     
                 </div>
-                
-
-                <input required id="fullName" type="text" class="df-input" placeholder="Nome completo">
-                <input required id="birthDate" type="date" class="df-input" placeholder="Data de nascimento">
-                <input required id="email" type="email" class="df-input" placeholder="Email">
-                <input required id="password" type="password" class="df-input" placeholder="Senha">
-
-                <app-df-button text="Continuar">
-                </app-df-button>
-                
-            </form>
-
-            <div class="right">
-                <img  class="image" src="assets/image/bg-cubes.png" alt="Fundo de decoração com 3 cubos com fundo de arco-iris">
+                 
             </div>
-        </main>
-    </div>
+            
+
+            <input required id="fullName" type="text" class="df-input" placeholder="Nome completo">
+            <input required id="birthDate" type="date" class="df-input" placeholder="Data de nascimento">
+            <input required id="email" type="email" class="df-input" placeholder="Email">
+            <input required id="password" type="password" class="df-input" placeholder="Senha">
+
+            <app-df-button text="Continuar">
+            </app-df-button>
+            
+        </form>
+
+        <div class="right">
+            <img  class="image" src="assets/image/bg-cubes.png" alt="Fundo de decoração com 3 cubos com fundo de arco-iris">
+        </div>
+    </app-df-wrapper>
+
 </div>

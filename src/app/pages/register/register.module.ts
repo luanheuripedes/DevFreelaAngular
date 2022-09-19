@@ -4,6 +4,7 @@ import { RegisterComponent } from './register.component';
 import { RegisterRoutingModule } from './register-routing.module';
 import { DfHeaderModule } from 'src/app/features/df-header/df-header.module';
 import { DfButtonModule } from 'src/app/shared/components/df-button/df-button.module';
+import { DfWrapperModule } from 'src/app/features/df-wrapper/df-wrapper.module';
 
 
 
@@ -14,8 +15,8 @@ import { DfButtonModule } from 'src/app/shared/components/df-button/df-button.mo
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    DfHeaderModule,
-    DfButtonModule
+    DfButtonModule,
+    DfWrapperModule
   ]
 })
 export class RegisterModule { }
