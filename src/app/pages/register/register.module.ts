@@ -5,6 +5,8 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { DfHeaderModule } from 'src/app/features/df-header/df-header.module';
 import { DfButtonModule } from 'src/app/shared/components/df-button/df-button.module';
 import { DfWrapperModule } from 'src/app/features/df-wrapper/df-wrapper.module';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -16,7 +18,9 @@ import { DfWrapperModule } from 'src/app/features/df-wrapper/df-wrapper.module';
     CommonModule,
     RegisterRoutingModule,
     DfButtonModule,
-    DfWrapperModule
+    DfWrapperModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class RegisterModule { }
