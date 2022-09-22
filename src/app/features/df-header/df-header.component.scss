@@ -48,14 +48,14 @@
                 >.name{
                     display: block;
                     font-weight: 800;
-                    font-size: calc(var(--font-size-base) + 4px);
+                    font-size: calc(var(--df-font-size-base) + 4px);
                     margin-bottom: 3px;
                 }
 
                 >.role{
                     display: block;
                     font-weight: 400;
-                    font-size: calc(var(--font-size-base) + 2px);
+                    font-size: calc(var(--df-font-size-base) + 2px);
                 }
             }
 

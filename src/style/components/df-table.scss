@@ -5,7 +5,7 @@
     padding-top: 28px;
 
     >.head{
-        font-size: calc(var(--font-size-base) + 6px);
+        font-size: calc(var(--df-font-size-base) + 6px);
         font-weight: 600;
         color: var(--df-color-gray-light);
 
@@ -41,7 +41,7 @@
             }
 
             >.price{
-                font-family: var(--font-family-roboto);
+                font-family: var(--df-font-family-roboto);
                 font-weight: 600;
             }
 

@@ -1,8 +1,8 @@
 .df-button{
-    font-family: var(--font-size-base);
+    font-family: var(--df-font-size-base);
     background-color: var(--df-color-primary);
     color: wheat;
-    font-size: calc(var(--font-size-base) + 8px);
+    font-size: calc(var(--df-font-size-base) + 8px);
     font-weight: 800;
     padding: 20px;
     border-radius: 50px;
@@ -13,7 +13,7 @@
     text-decoration: none;
 
     &.-small{
-        font-size: calc(var(--font-size-base) + 4px);
+        font-size: calc(var(--df-font-size-base) + 4px);
         font-weight: 600;
         padding: 12px 27px;
     }

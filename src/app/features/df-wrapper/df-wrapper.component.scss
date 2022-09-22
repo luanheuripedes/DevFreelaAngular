@@ -16,7 +16,7 @@
         >.back-btn{
             position: fixed;
             top: calc(var(--df-header-size) + 38px);
-            font-size: calc(var(--font-size-base) + 40px);
+            font-size: calc(var(--df-font-size-base) + 40px);
             cursor: pointer;
             color: var(--df-color-gray-dark);
             text-decoration: none;
