@@ -1,12 +1,9 @@
 <div class="df-register">
     <app-df-wrapper>
-        <form class="left" (submit)="cadastrar()" action="javascript:void(0)">
+        <form class="left" (submit)="cadastrar()" [formGroup]="registerForm">
                  
             <!-- <span class="steps">PASSO 1 DE 2</span> -->
-            <mat-form-field appearance="legacy">
-                <mat-label>Input</mat-label>
-                <input matInput>
-              </mat-form-field>
+            
 
             <h1 class="main-title">
                 <span class="up">Olá!</span>
@@ -31,11 +28,26 @@
                  
             </div>
             
+        
+            <mat-form-field appearance="legacy">
+                <mat-label>Nome Completo</mat-label>
+                <input matInput formControlName="fullName">
+            </mat-form-field> 
 
-            <input required id="fullName" type="text" class="df-input" placeholder="Nome completo">
-            <input required id="birthDate" type="date" class="df-input" placeholder="Data de nascimento">
-            <input required id="email" type="email" class="df-input" placeholder="Email">
-            <input required id="password" type="password" class="df-input" placeholder="Senha">
+            <mat-form-field appearance="legacy">
+                <mat-label>Data de Nascimento</mat-label>
+                <input type="date" matInput formControlName="birthDate">
+            </mat-form-field> 
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field> 
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Senha</mat-label>
+                <input type="password" matInput formControlName="password">
+            </mat-form-field> 
 
             <app-df-button text="Continuar">
             </app-df-button>

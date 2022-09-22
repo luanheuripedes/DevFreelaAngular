@@ -7,6 +7,7 @@ import { DfButtonModule } from 'src/app/shared/components/df-button/df-button.mo
 import { DfWrapperModule } from 'src/app/features/df-wrapper/df-wrapper.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,8 @@ import {MatInputModule} from '@angular/material/input';
     DfButtonModule,
     DfWrapperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class RegisterModule { }
