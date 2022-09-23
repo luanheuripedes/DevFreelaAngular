@@ -2,51 +2,70 @@
     <app-df-wrapper>
         <form class="left" (submit)="cadastrar()" [formGroup]="registerForm">
                  
-            <!-- <span class="steps">PASSO 1 DE 2</span> -->
+            <!-- {{registerForm.value | json}} -->
             
 
             <h1 class="main-title">
                 <span class="up">Olá!</span>
                 <span class="down">Vamos criar o seu cadastro.</span>
             </h1>
+
             <div class="radio-buttons">
                 <h3 class="title">Qual o seu perfil?</h3>
 
                 <div class="buttons">
                     <label class="df-radio">
                         Dev
-                        <input name="role" type="radio">
+                        <input name="role" type="radio" (click)="togleRole('dev')">
                         <span class="checkmark"></span>
                     </label>
 
                     <label class="df-radio">
                         Cliente
-                        <input name="role" type="radio">
+                        <input name="role" type="radio" (click)="togleRole('cliente')">
                         <span class="checkmark"></span>
                     </label>     
                 </div>
-                 
+                 <span class="role-invalid" *ngIf="isInvalid('role','required')">
+                    {{msg.role}}
+                 </span>
             </div>
             
         
             <mat-form-field appearance="legacy">
                 <mat-label>Nome Completo</mat-label>
                 <input matInput formControlName="fullName">
+                <mat-error *ngIf="isInvalid('fullName','required')">
+                    {{msg.required}}
+                </mat-error>
             </mat-form-field> 
 
             <mat-form-field appearance="legacy">
                 <mat-label>Data de Nascimento</mat-label>
                 <input type="date" matInput formControlName="birthDate">
+                <mat-error *ngIf="isInvalid('birthDate','required')">
+                    {{msg.required}}
+                </mat-error>
             </mat-form-field> 
 
             <mat-form-field appearance="legacy">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email">
+                <mat-error *ngIf="isInvalid('email','required')">
+                    {{msg.required}}
+                </mat-error>
+
+                <mat-error *ngIf="isInvalid('email','required')">
+                    {{msg.email}}
+                </mat-error>
             </mat-form-field> 
 
             <mat-form-field appearance="legacy">
                 <mat-label>Senha</mat-label>
                 <input type="password" matInput formControlName="password">
+                <mat-error *ngIf="isInvalid('password','required')">
+                    {{msg.required}}
+                </mat-error>
             </mat-form-field> 
 
             <app-df-button text="Continuar">
