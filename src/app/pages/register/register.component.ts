@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { msg } from 'src/app/shared/utils/msg';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { RegisterService } from './services/register.service';
+import { IUser } from './interfaces/IUser';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   });
 
   msg = msg;
-  constructor(private fb: FormBuilder, private http:HttpClient) { }
+  constructor(private fb: FormBuilder, private registerService: RegisterService) { }
 
   
 
@@ -47,10 +47,9 @@ export class RegisterComponent implements OnInit {
 
     if(this.registerForm.valid){
       //(payload)
-      let payload = this.registerForm.value;
+      let payload: IUser = this.registerForm.value;
 
-      this.http.post(environment.apiUrl + 'users', payload)
-               .subscribe(
+      this.registerService.postUser(payload).subscribe(
                 (response) => {
                   Swal.fire({
                     title:'Bom Trabalho!',
@@ -64,54 +63,18 @@ export class RegisterComponent implements OnInit {
                       localStorage.setItem("idClient",response.id)
                     }
                   }),(error) =>{
-                    console.log(error);
+                    //   //400
+                    //   //403
+                    //   //500
+                    //   //posso criar uma classe so pra tratar os errors
+                    console.log(error.status);
                   }
                 }
                )
-                
-              
-
       }else{
         this.registerForm.markAllAsTouched();
       }
     
-
-        //  ,(error) => {
-                  //   //400
-                  //   //403
-                  //   //500
-                  //   //posso criar uma classe so pra tratar os errors
-                  //   cosnole.log(error.status);
-
-        // //Enviar para a API
-
-        // fetch("https://63177ac4ece2736550b47a15.mockapi.io/api/users", {
-        //     method: 'POST',
-        //     body: JSON.stringify(payLoad),
-        //     headers:{
-        //         'Content-Type': 'application/json'
-        //     }
-        // }).then(response => response.json())
-        //   .then(response =>{
-
-        //     //alert('Cadastrado com Sucesso!')
-            // Swal.fire(
-            //     'Sucesso!',
-            //     'Cadastrado com Sucesso!',
-            //     'success'
-            //   );
-            
-            // localStorage.setItem("userName", response.fullName);
-            // localStorage.setItem("role", response.role === "dev"?"Desenvolvedor":"Cliente");
-            // localStorage.setItem("idClient",response.id)
-
-            // //redirect para Listagem
-            // window.location.href = "list.html";
-          // })
-        //   .catch(error =>{
-        //     alert('Erro no servidor!');
-        //   });
-
   }
 
   togleRole(role: 'dev' | 'cliente'){
