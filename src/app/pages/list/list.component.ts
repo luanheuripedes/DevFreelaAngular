@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IListItem } from './interfaces/IListItem';
+import { ListService } from './services/list.service';
 
 @Component({
   selector: 'app-list',
@@ -7,25 +8,23 @@ import { IListItem } from './interfaces/IListItem';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  constructor() {}
+
+  constructor(private listService: ListService) {}
 
   list: IListItem[] = [];
 
   ngOnInit(): void {
-    (document.querySelector("#name")as any).innerText = localStorage.getItem("userName");
-    (document.querySelector("#role")as any).innerText = localStorage.getItem("role");
-
     this.getProjects();
   }
 
   getProjects() {
     //Pegar para a API
-    fetch('https://63177ac4ece2736550b47a15.mockapi.io/api/projects')
-      .then(response => response.json())
-      .then((response : IListItem[]) => {
+    this.listService.getProjects().subscribe(
+      (response: IListItem[]) => {
         this.list = response;
         this.buildTable();
-      });
+      }
+    )
   }
 
     buildTable(){
