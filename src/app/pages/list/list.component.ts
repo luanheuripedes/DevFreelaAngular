@@ -8,10 +8,10 @@ import { ListService } from './services/list.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-
   constructor(private listService: ListService) {}
 
   list: IListItem[] = [];
+  tableIsLoaded: boolean = false;
 
   ngOnInit(): void {
     this.getProjects();
@@ -19,36 +19,35 @@ export class ListComponent implements OnInit {
 
   getProjects() {
     //Pegar para a API
-    this.listService.getProjects().subscribe(
-      (response: IListItem[]) => {
-        this.list = response;
-        this.buildTable();
-      }
-    )
+    this.listService.getProjects().subscribe((response) => {
+      this.list = response;
+      this.buildTable();
+      this.tableIsLoaded = true;
+    });
   }
 
-    buildTable(){
-    (document.querySelector("#table-body")as any).innerHTML = "";
+
+  buildTable() {
     const idClient = localStorage.getItem('idClient');
 
-    this.list = this.list.filter((listItem: IListItem) => listItem.idClient === idClient);
+    this.list = this.list.filter(
+      (listItem: IListItem) => listItem.idClient == idClient
+    );
+   
+  }
 
+  goToEdit(id:any) {
+    window.location.href = `project-create-edit.html?id=${id}`;
+  }
 
-    this.list.forEach(listItem => {
-        let template = `
-                    <div class="row">
-                        <div class="title-description">
-                            <h6 class="title">${listItem.title}</h6>
-                            <p class="description">${listItem.description}</p>
-                        </div>
-                        <div class="price">R$${listItem.totalCoast}</div>
-                            <div class="actions">
-                                <span class="edit material-icons" onclick="goToEdit(${listItem.id})">edit</span>
-                                <span class="delete material-icons"onclick="deleteProject(${listItem.id})"> delete</span>
-                            </div>                        
-                    </div>
-                    `;
-        (document.querySelector("#table-body")as any).insertAdjacentHTML("beforeend", template);
-    });
-}
+  deleteProject(id: any) {
+
+    this.listService.deleteProject(id).subscribe(
+      (response) => {
+        this.list = this.list.filter((project) => project.id !== id);
+        this.buildTable();
+      }
+
+    )
+  }
 }
