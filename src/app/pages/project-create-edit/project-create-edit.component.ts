@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IProject } from 'src/app/shared/interfaces/IProject';
+import { ProjectCreateEditService } from './services/project-create-edit.service';
 
 @Component({
   selector: 'app-project-create-edit',
@@ -12,7 +14,7 @@ export class ProjectCreateEditComponent implements OnInit {
   //Type: 'create' || 'edit'
   screenType: 'edit' | 'create';
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private projectCreateEditService: ProjectCreateEditService) {
    this.id = history.state.id
    this.screenType = this.id ? 'edit': 'create';
   }
@@ -26,39 +28,28 @@ export class ProjectCreateEditComponent implements OnInit {
     //Se entrou aqui, é porque o form esta valido!
 
     //pegar dados do form - inicia a massa de dados
-    let payLoad = {
+    let payLoad:IProject = {
       title: (document.querySelector('#title') as any).value,
       totalCoast: (document.querySelector('#totalCoast') as any).value,
       description: (document.querySelector('#description') as any).value,
       idClient: localStorage.getItem('idClient'),
     };
 
-    //Enviar para a API
-    fetch(
-      `https://63177ac4ece2736550b47a15.mockapi.io/api/projects${
-        this.screenType === 'edit' ? '/' + this.id : ''
-      }`,
-      {
-        method: this.screenType === 'edit' ? 'PUT' : 'POST',
-        body: JSON.stringify(payLoad),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        if (this.screenType === 'edit') {
-          alert('Editado com sucesso!');
-        } else {
-          alert('Cadastrado com sucesso!');
-        }
-
+    if(this.screenType === 'create'){
+      this.projectCreateEditService.postProject(payLoad)
+      .subscribe(response => {
+        alert('Cadastrado com sucesso!');
         this.router.navigateByUrl('list');
       })
-      .catch((error) => {
-        alert('Erro no servidor!' + error);
-      });
+    }
+
+    if(this.screenType === 'edit'){
+      this.projectCreateEditService.putProject(payLoad, this.id)
+      .subscribe(response => {
+        alert('Editado com sucesso!'); 
+        this.router.navigateByUrl('list');
+      })
+    }
   }
 
   fillInputs() {

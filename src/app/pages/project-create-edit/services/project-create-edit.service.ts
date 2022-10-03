@@ -7,15 +7,16 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ListService {
+export class ProjectCreateEditService {
 
   constructor(private http: HttpClient) { }
 
-  getProjects(){
-    return this.http.get<IProject[]>(`${environment.apiUrl}/projects`);
+  postProject(project:IProject){
+    return this.http.post<IProject[]>(`${environment.apiUrl}/projects`,project);
   }
 
-  deleteProject(id:string){
-    return this.http.delete(`${environment.apiUrl}/projects/${id}`)
+  putProject(project:IProject, id: string){
+    return this.http.put<IProject[]>(`${environment.apiUrl}/projects${id}`,project);
   }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationBehaviorOptions, Route, Router } from '@angular/router';
-import { IListItem } from './interfaces/IListItem';
+import { IProject } from 'src/app/shared/interfaces/IProject';
+
 import { ListService } from './services/list.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ListService } from './services/list.service';
 export class ListComponent implements OnInit {
   constructor(private listService: ListService, private router:Router) {}
 
-  list: IListItem[] = [];
+  list: IProject[] = [];
   tableIsLoaded: boolean = false;
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class ListComponent implements OnInit {
     const idClient = localStorage.getItem('idClient');
 
     this.list = this.list.filter(
-      (listItem: IListItem) => listItem.idClient == idClient
+      (listItem: IProject) => listItem.idClient == idClient
     );
    
   }
