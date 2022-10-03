@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationBehaviorOptions, Route, Router } from '@angular/router';
 import { IListItem } from './interfaces/IListItem';
 import { ListService } from './services/list.service';
 
@@ -8,7 +9,7 @@ import { ListService } from './services/list.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  constructor(private listService: ListService) {}
+  constructor(private listService: ListService, private router:Router) {}
 
   list: IListItem[] = [];
   tableIsLoaded: boolean = false;
@@ -36,9 +37,6 @@ export class ListComponent implements OnInit {
    
   }
 
-  goToEdit(id:any) {
-    window.location.href = `project-create-edit.html?id=${id}`;
-  }
 
   deleteProject(id: any) {
 
@@ -49,5 +47,19 @@ export class ListComponent implements OnInit {
       }
 
     )
+  }
+
+  redirectTo(url:string){
+    this.router.navigateByUrl(url);
+  }
+
+  redirectToWithParams(url:string, id:any){
+    const dataParams: NavigationBehaviorOptions = {
+      state:{
+        id: id
+      }
+    }
+
+    this.router.navigate([`/${url}`], dataParams)
   }
 }

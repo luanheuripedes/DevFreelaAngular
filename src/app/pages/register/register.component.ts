@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import { msg } from 'src/app/shared/utils/msg';
 import { RegisterService } from './services/register.service';
 import { IUser } from './interfaces/IUser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   });
 
   msg = msg;
-  constructor(private fb: FormBuilder, private registerService: RegisterService) { }
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private router:Router) { }
 
   
 
@@ -61,6 +62,8 @@ export class RegisterComponent implements OnInit {
                       localStorage.setItem("userName", response.fullName);
                       localStorage.setItem("role", response.role === "dev"?"Desenvolvedor":"Cliente");
                       localStorage.setItem("idClient",response.id)
+
+                      this.router.navigateByUrl('list');
                     }
                   }),(error) =>{
                     //   //400
