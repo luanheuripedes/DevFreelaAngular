@@ -14,6 +14,9 @@ export class ProjectCreateEditComponent implements OnInit {
   //Type: 'create' || 'edit'
   screenType: 'edit' | 'create';
 
+  title: string = '';
+  actionButtonText: string = '';
+
   constructor(private router:Router, private projectCreateEditService: ProjectCreateEditService) {
    this.id = history.state.id
    this.screenType = this.id ? 'edit': 'create';
@@ -68,21 +71,19 @@ export class ProjectCreateEditComponent implements OnInit {
     }
   }
 
+
+
   setScreenTypeTexts() {
     //Modo criar
     if (this.screenType == 'create') {
-      //DOM é o nosso body (nossas tags) acessamos ele para acessar as nossas tags
-      (document.querySelector('#main-title') as any).innerText =
-        'Vamos cadastrar seu novo projeto!';
-      (document.querySelector('#action-button') as any).innerText = 'Cadastrar';
+      this.title = "Vamos cadastrar seu novo projeto!";
+      this.actionButtonText = "Cadastrar";
     }
 
     //Modo editar
     if (this.screenType == 'edit') {
-      //DOM é o nosso body (nossas tags) acessamos ele para acessar as nossas tags
-      (document.querySelector('#main-title') as any).innerText =
-        'Editar projeto';
-      (document.querySelector('#action-button') as any).innerText = 'Salvar';
+      this.title = "Editar projeto!";
+      this.actionButtonText = "Salvar";
     }
   }
 }
