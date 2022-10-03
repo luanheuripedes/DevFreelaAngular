@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectCreateEditComponent } from './project-create-edit.component';
 import { ProjectCreateEditRoutingModule } from './project-create-edit-routing.module';
 import { DfWrapperModule } from 'src/app/features/df-wrapper/df-wrapper.module';
+import { DfButtonModule } from 'src/app/shared/components/df-button/df-button.module';
 
 
 
@@ -13,7 +14,8 @@ import { DfWrapperModule } from 'src/app/features/df-wrapper/df-wrapper.module';
   imports: [
     CommonModule,
     ProjectCreateEditRoutingModule,
-    DfWrapperModule
+    DfWrapperModule,
+    DfButtonModule
   ]
 })
 export class ProjectCreateEditModule { }

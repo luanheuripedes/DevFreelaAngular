@@ -1,3 +1,17 @@
 .df-project-create-edit{
-    
+    .left{
+        max-width: 368px;
+        margin: auto;
+
+        >.df-button{
+            margin-top: 40px;
+        }
+
+        >.main-title{
+            font-size: calc(var(--font-size-base) + 32px);
+            font-weight: 800;
+            max-width: 415px;
+            margin-bottom: 43px;
+        }
+    }
 }

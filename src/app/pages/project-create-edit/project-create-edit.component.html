@@ -1,5 +1,24 @@
 <div class="df-project-create-edit">
-    <app-df-wrapper>
-        Conteudo do projec create edit
+    <app-df-wrapper backToPage="list">
+        <!-- <a class=" back-btn material-icons" href="list.html">
+            keyboard_double_arrow_left
+        </a> -->
+
+        <form class="left" onsubmit="createOrEdit()" action="javascript:void(0)">
+        
+            <h1 class="main-title" id="main-title"></h1>
+            
+            <input required id="title" type="text" class="df-input" placeholder="Título">
+            <input required id="totalCoast" type="text" class="df-input" placeholder="Custo Total">
+            <textarea required id="description" type="text" class="df-input" placeholder="Descrição"></textarea>
+
+
+            <app-df-button text="Salvar"></app-df-button>
+            
+        </form>
+
+        <div class="right">
+            <img  class="image" src="assets/image/bg-float-cubes.png" alt="Fundo de decoração com 3 cubos com fundo de arco-iris">
+        </div>
     </app-df-wrapper>
 </div>
