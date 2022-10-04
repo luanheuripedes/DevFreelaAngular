@@ -1,7 +1,7 @@
 export interface IProject {
     title: string;
     description: string;
-    totalCoast: string;
+    totalCost: string;
     idClient: string | null;
     id?: string;
 }
