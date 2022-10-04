@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit {
   });
 
   msg = msg;
+  helpers = Helpers;
+
   constructor(private fb: FormBuilder, private registerService: RegisterService, private router:Router) { }
 
   
@@ -84,14 +86,5 @@ export class RegisterComponent implements OnInit {
     this.registerForm.get('role')?.setValue(role);
   }
 
-  isInvalid(inputName:string, validatorName:string):boolean{
-    const formControl:any = this.registerForm.get(inputName);
-
-    if(formControl.errors !== null){
-      return formControl.errors[validatorName] && formControl.touched;
-    }
-  }
-
-  
 
 }
