@@ -25,6 +25,21 @@ export class ListComponent implements OnInit {
       this.list = response;
       this.buildTable();
       this.tableIsLoaded = true;
+    },
+      //posso fazer isso tudo pelo interceptor
+    (error) => {
+        if(error.status == 400){
+          alert("Bad Request 400")
+        }
+
+        if(error.status == 500){
+          alert("Erro no servidor 500")
+        }
+
+        if(error.status == 403){
+          alert("Acesso negado")
+          //redirect para o login
+        }
     });
   }
 
