@@ -7,7 +7,7 @@ Interface web moderna e responsiva para a plataforma DevFreela, desenvolvida com
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 O **DevFreela Angular** é a interface frontend da plataforma DevFreela, proporcionando uma experiência intuitiva e moderna para clientes e freelancers gerenciarem seus projetos. A aplicação foi desenvolvida com foco em performance, usabilidade e design responsivo.
 
